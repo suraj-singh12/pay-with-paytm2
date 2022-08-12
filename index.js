@@ -30,9 +30,7 @@ app.post("/paynow", [parseUrl, parseJson], (req, res) => {
     customerPhone: req.body.phone
 }
 if(!paymentDetails.amount || !paymentDetails.customerId || !paymentDetails.customerEmail || !paymentDetails.customerPhone ) {
-  // res.status(400).send('Payment failed')
-  console.log('payment failed');
-  console.log(paymentDetails);
+  res.status(400).send('Payment failed')
 } else {
     var params = {};
     params['MID'] = config.PaytmConfig.mid;
@@ -43,7 +41,7 @@ if(!paymentDetails.amount || !paymentDetails.customerId || !paymentDetails.custo
     params['CUST_ID'] = paymentDetails.customerId;
     params['TXN_AMOUNT'] = paymentDetails.amount;
     /* where is app is hosted (heroku url)*/
-    params['CALLBACK_URL'] = 'http://localhost:3000/callback';     // applicable when you run it locally
+    params['CALLBACK_URL'] = 'http://localhost:4100/callback';     // applicable when you run it locally
     // params['CALLBACK_URL'] = 'https://pay-with-paytm2.herokuapp.com/callback';    // applicable when app runs live
     params['EMAIL'] = paymentDetails.customerEmail;
     params['MOBILE_NO'] = paymentDetails.customerPhone;
