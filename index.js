@@ -24,15 +24,17 @@ app.post("/paynow", [parseUrl, parseJson], (req, res) => {
   console.log(">>>>",req.body)
   var paymentDetails = {
     // orderID: Math.random()*10000,
-    orderID: Math.random()*10000,
-    amount: req.body.cost,
+    orderID: req.body.order_id ? req.body.order_id : Math.random()*10000,
+    amount: req.body.total_amount,    // changed from cost to total_amount
     customerId: req.body.name,
     customerEmail: req.body.email,
-    customerPhone: req.body.phone,
-    customerRest: req.body.rest_name
+    customerPhone: req.body.phone
+    // customerRest: req.body.rest_name
 }
 if(!paymentDetails.amount || !paymentDetails.customerId || !paymentDetails.customerEmail || !paymentDetails.customerPhone ) {
-  res.status(400).send('Payment failed')
+  // res.status(400).send('Payment failed')
+  console.log('payment failed');
+  console.log(paymentDetails);
 } else {
     var params = {};
     params['MID'] = config.PaytmConfig.mid;
