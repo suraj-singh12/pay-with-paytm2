@@ -124,10 +124,10 @@ app.post("/callback", (req, res) => {
           
           // custom: written by me (1): this will send information back to you (on this same api) after the payment is done
           // res.redirect(`http://localhost:4100/viewBooking?data=${response}`);  // applicable when you run it locally
-          res.redirect(`https://pay-with-paytm2.herokuapp.com/viewBooking?data=${response}`);  // applicable when app runs live
+          // res.redirect(`https://pay-with-paytm2.herokuapp.com/viewBooking?data=${response}`);  // applicable when app runs live
 
           // redirect to my react app running at localhost:3000
-          // res.redirect(`http://localhost:3000/viewBooking?status=${_results.STATUS}&ORDERID=${_results.ORDERID}&date=${_results.TXNDATE}&bank=${_results.BANKNAME}`);
+          res.redirect(`http://localhost:3000/viewBooking?status=${_results.STATUS}&ORDERID=${_results.ORDERID}&date=${_results.TXNDATE}&bank=${_results.BANKNAME}`);
 
           // redirect to my netlify (live app)
           // res.redirect(`https://zomato-app12.netlify.app/viewBooking?status=${_results.STATUS}&ORDERID=${_results.ORDERID}&date=${_results.TXNDATE}&bank=${_results.BANKNAME}`);
