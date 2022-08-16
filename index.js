@@ -130,7 +130,7 @@ app.post("/callback", (req, res) => {
           // res.redirect(`http://localhost:3000/orders?status=${_results.STATUS}&ORDERID=${_results.ORDERID}&date=${_results.TXNDATE}&bank=${_results.BANKNAME}`);
 
           // redirect to my netlify (live app)
-          res.redirect(`https://fkart-app.netlify.app/viewBooking?status=${_results.STATUS}&ORDERID=${_results.ORDERID}&date=${_results.TXNDATE}&bank=${_results.BANKNAME}`);
+          res.redirect(`https://fkart-app.netlify.app/orders?status=${_results.STATUS}&ORDERID=${_results.ORDERID}&date=${_results.TXNDATE}&bank=${_results.BANKNAME}`);
            });
        });
        
